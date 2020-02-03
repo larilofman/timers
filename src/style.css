@@ -1,0 +1,15 @@
+.eggTimerApp{
+    background-color: powderblue;
+}
+
+.eggTimerApp li{
+    list-style-type: none;
+}
+
+.eggTimer{
+    background: #7b829b;
+    display: block;
+    margin: auto;
+    width: 500px;
+    padding: 30px;
+}
