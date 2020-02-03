@@ -41,18 +41,19 @@ class EggTimerApp extends React.Component {
     cancelAlarm = (eggTimer) => {
         console.log(eggTimer.props.id)
         this.setState(prevState => ({
-            eggTimers: prevState.eggTimers.filter(timer => timer.id != eggTimer.props.id)
+            eggTimers: prevState.eggTimers.filter(timer => timer.id !== eggTimer.props.id)
         }))
     }
 
     render() {
         const setTimerForm =
             <form name="setTimer" onSubmit={this.handleSubmit}>
-                Hours: <input type="number" min="0" max="99" value={this.state.hours} name="hours" onChange={this.handleChange} />
+                <p>Add new Timer: </p>
+                <label htmlFor="hours">Hours: </label><input type="number" min="0" max="99" value={this.state.hours} name="hours" onChange={this.handleChange} />
                 <br />
-                Minutes: <input type="number" min="0" max="59" value={this.state.minutes} name="minutes" onChange={this.handleChange} />
+                <label htmlFor="minutes">Minutes: </label><input type="number" min="0" max="59" value={this.state.minutes} name="minutes" onChange={this.handleChange} />
                 <br />
-                Seconds: <input type="number" min="0" max="59" value={this.state.seconds} name="seconds" onChange={this.handleChange} />
+                <label htmlFor="seconds">Seconds: </label><input type="number" min="0" max="59" value={this.state.seconds} name="seconds" onChange={this.handleChange} />
                 <br />
                 <button>Start</button>
             </form>

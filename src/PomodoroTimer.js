@@ -1,6 +1,6 @@
 import React from "react"
 import toHHMMSS from "./utils"
-import UncleKornicob from "./sounds/UncleKornicob.mp3"
+
 
 class EggTimer extends React.Component {
 
@@ -11,7 +11,6 @@ class EggTimer extends React.Component {
             endTime: 0,
             totalTime: 0,
             isRunning: true,
-            alarmSound: new Audio(UncleKornicob)
         }
     }
 
