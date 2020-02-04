@@ -39,7 +39,6 @@ class EggTimerApp extends React.Component {
     }
 
     cancelAlarm = (eggTimer) => {
-        console.log(eggTimer.props.id)
         this.setState(prevState => ({
             eggTimers: prevState.eggTimers.filter(timer => timer.id !== eggTimer.props.id)
         }))

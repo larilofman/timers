@@ -22,6 +22,13 @@ class PomodoroApp extends React.Component {
         this.breakSound = new Audio(BreakSound)
     }
 
+    // componentWillUnmount() {
+    //     this.workSound.currentTime = 0
+    //     this.workSound.pause()
+    //     this.breakSound.currentTime = 0
+    //     this.breakSound.pause()
+    // }
+
     handleChange = (event) => {
         const { name, value } = event.target
         this.setState({ [name]: value })

@@ -1,16 +1,11 @@
 import React from 'react';
-import Timer from "./Timer"
-import EggTimerApp from "./EggTimerApp"
-import PomodoroApp from "./PomodoroApp"
+import Header from "./Header"
 
 function App() {
   return (
     < div >
-      <PomodoroApp />
+      <Header />
     </div >
-    // < div >
-    //   <EggTimerApp />
-    // </div >
   );
 }
 

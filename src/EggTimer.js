@@ -11,12 +11,19 @@ class EggTimer extends React.Component {
             endTime: 0,
             totalTime: 0,
             isRunning: true,
-            alarmSound: new Audio(UncleKornicob)
         }
+
+        this.alarmSound = new Audio(UncleKornicob)
     }
 
     componentDidMount() {
         this.startTimer()
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.timer)
+        this.alarmSound.currentTime = 0
+        this.alarmSound.pause()
     }
 
     startTimer = () => {
@@ -46,8 +53,8 @@ class EggTimer extends React.Component {
 
     alarm = () => {
         clearInterval(this.timer)
-        this.state.alarmSound.loop = true
-        this.state.alarmSound.play()
+        this.alarmSound.loop = true
+        this.alarmSound.play()
         this.setState({ isRunning: false })
     }
 
@@ -55,8 +62,8 @@ class EggTimer extends React.Component {
         event.preventDefault()
 
         clearInterval(this.timer)
-        this.state.alarmSound.currentTime = 0
-        this.state.alarmSound.pause()
+        this.alarmSound.currentTime = 0
+        this.alarmSound.pause()
 
         this.props.cancelFunc(this)
     }

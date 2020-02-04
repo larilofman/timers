@@ -8,6 +8,10 @@ class Timer extends React.Component {
         isRunning: false
     }
 
+    componentWillUnmount() {
+        clearInterval(this.timer)
+    }
+
     // set startTime to now and time elapsed to 0
     startTimer = () => {
         this.setState({
