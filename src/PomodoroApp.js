@@ -9,14 +9,17 @@ class PomodoroApp extends React.Component {
         this.state = {
             workHours: 0,
             workMinutes: 0,
-            workSeconds: 0,
+            workSeconds: 3,
             breakHours: 0,
             breakMinutes: 0,
-            breakSeconds: 0,
-            workSound: new Audio(WorkSound),
-            breakSound: new Audio(BreakSound)
+            breakSeconds: 2,
+            isWork: false,
+            isBreak: false,
+            timerKey: 0
         }
 
+        this.workSound = new Audio(WorkSound)
+        this.breakSound = new Audio(BreakSound)
     }
 
     handleChange = (event) => {
@@ -24,8 +27,61 @@ class PomodoroApp extends React.Component {
         this.setState({ [name]: value })
     }
 
+    handleSubmit = (event) => {
+        event.preventDefault()
+        this.startWorkTimer()
+    }
+
+    startWorkTimer() {
+        this.setState({ isWork: true });
+    }
+
+    isActive() {
+        return this.state.isWork || this.state.isBreak
+    }
+
+    handleChange = () => {
+        this.state.isWork ? this.breakSound.play() : this.workSound.play()
+
+        this.setState(prevState => ({
+            isWork: !prevState.isWork,
+            isBreak: !prevState.isBreak,
+
+        }))
+    }
+
+    handleCancel = () => {
+        this.setState({ isWork: false, isBreak: false })
+    }
+
+    getPomodoroTimer() {
+        if (this.state.isWork) {
+            return (
+                <PomodoroTimer
+                    hours={this.state.workHours}
+                    minutes={this.state.workMinutes}
+                    seconds={this.state.workSeconds}
+                    text={"Work"}
+                    key={0}
+                    onTimeout={this.handleChange}
+                    onCancel={this.handleCancel}
+                />)
+        } else {
+            return (
+                <PomodoroTimer
+                    hours={this.state.breakHours}
+                    minutes={this.state.breakMinutes}
+                    seconds={this.state.breakSeconds}
+                    text={"Break"}
+                    key={1}
+                    onTimeout={this.handleChange}
+                    onCancel={this.handleCancel}
+                />)
+        }
+    }
+
     render() {
-        const setTimersForm =
+        const setTimersForm = (
             <form name="setTimers" onSubmit={this.handleSubmit}>
 
                 <p>Work length: </p>
@@ -44,12 +100,11 @@ class PomodoroApp extends React.Component {
                 <label htmlFor="breakSeconds">Seconds: </label><input type="number" min="0" max="59" value={this.state.breakSeconds} name="breakSeconds" onChange={this.handleChange} />
                 <br />
                 <button>Start</button>
-            </form>
+            </form>)
+
         return (
             <div className="eggTimerApp">
-                {setTimersForm}
-                <p>Work: {this.state.workHours} {this.state.workMinutes} {this.state.workSeconds}</p>
-                <p>Break: {this.state.breakHours} {this.state.breakMinutes} {this.state.breakSeconds}</p>
+                {!this.isActive() ? setTimersForm : this.getPomodoroTimer()}
             </div>
         )
     }

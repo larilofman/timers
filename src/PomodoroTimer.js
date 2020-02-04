@@ -2,7 +2,7 @@ import React from "react"
 import toHHMMSS from "./utils"
 
 
-class EggTimer extends React.Component {
+class PomodoroTimer extends React.Component {
 
     constructor(props) {
         super(props)
@@ -16,6 +16,10 @@ class EggTimer extends React.Component {
 
     componentDidMount() {
         this.startTimer()
+    }
+
+    componentWillUnmount() {
+        clearInterval(this.timer)
     }
 
     startTimer = () => {
@@ -45,19 +49,8 @@ class EggTimer extends React.Component {
 
     alarm = () => {
         clearInterval(this.timer)
-        this.state.alarmSound.loop = true
-        this.state.alarmSound.play()
         this.setState({ isRunning: false })
-    }
-
-    cancelAlarm = (event) => {
-        event.preventDefault()
-
-        clearInterval(this.timer)
-        this.state.alarmSound.currentTime = 0
-        this.state.alarmSound.pause()
-
-        this.props.cancelFunc(this)
+        this.props.onTimeout()
     }
 
     render() {
@@ -65,23 +58,17 @@ class EggTimer extends React.Component {
             <form name="runTimer" onSubmit={this.cancelAlarm}>
                 <p>{toHHMMSS(this.state.timeLeft, true)}</p>
                 <br />
-                <button>Cancel</button>
-            </form>
-
-        const alarmForm =
-            <form name="alarm" onSubmit={this.cancelAlarm}>
-
-                <p>Timer of {toHHMMSS(this.state.totalTime, true)} elapsed.</p>
-                <br />
-                <button>Ok</button>
+                <button onClick={this.props.onCancel}>Cancel</button>
             </form>
 
         return (
             <div className="eggTimer">
-                {this.state.isRunning ? timerRunningForm : alarmForm}
+                {this.props.text}
+                <br />
+                {timerRunningForm}
             </div>
         )
     }
 }
 
-export default EggTimer
+export default PomodoroTimer
