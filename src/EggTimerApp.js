@@ -9,6 +9,7 @@ class EggTimerApp extends React.Component {
             hours: 0,
             minutes: 0,
             seconds: 1,
+            timerText: "",
             eggTimers: [],
             timerID: 1,
         }
@@ -29,12 +30,14 @@ class EggTimerApp extends React.Component {
             hours: this.state.hours,
             minutes: this.state.minutes,
             seconds: this.state.seconds,
+            text: this.state.timerText,
             id: this.state.timerID
         }
 
         this.setState(prevState => ({
             eggTimers: [...prevState.eggTimers, newEggTimer],
-            timerID: prevState.timerID + 1
+            timerID: prevState.timerID + 1,
+            timerText: ""
         }))
     }
 
@@ -54,6 +57,7 @@ class EggTimerApp extends React.Component {
                 <br />
                 <label htmlFor="seconds">Seconds: </label><input type="number" min="0" max="59" value={this.state.seconds} name="seconds" onChange={this.handleChange} />
                 <br />
+                <label htmlFor="timerText">Text: </label><input type="text" maxLength="50" value={this.state.timerText} name="timerText" onChange={this.handleChange} />
                 <button>Start</button>
             </form>
         return (
@@ -65,6 +69,7 @@ class EggTimerApp extends React.Component {
                             seconds={eggTimer.seconds}
                             minutes={eggTimer.minutes}
                             hours={eggTimer.hours}
+                            text={eggTimer.text}
                             cancelFunc={this.cancelAlarm}
                             id={eggTimer.id}
                         /></li>)}

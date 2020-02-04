@@ -6,30 +6,30 @@ import PomodoroApp from "./PomodoroApp"
 
 function Header() {
     return (
-        <div className="navbar">
+        <div>
             <Router>
-                <div>
+                <div className="navbar">
                     <h1>Timers</h1>
                     <nav>
                         <ul>
                             <li>
-                                <Link to="/eggtimer">EggTimer</Link>
+                                <Link className="navlink" to="/eggtimer">Egg</Link>
                             </li>
                             <li>
-                                <Link to="/pomodorotimer">PomodoroTimer</Link>
+                                <Link className="navlink" to="/pomodorotimer">Pomodoro</Link>
                             </li>
                             <li>
-                                <Link to="/timer">Timer</Link>
+                                <Link className="navlink" to="/timer">Stopwatch</Link>
                             </li>
                         </ul>
                     </nav>
-
-                    <Route path="/eggtimer" component={EggTimer} />
-                    <Route path="/pomodorotimer" component={PomodoroTimer} />
-                    <Route path="/timer" component={TimerApp} />
                 </div>
+                <Route path="/eggtimer" component={EggTimer} />
+                <Route path="/pomodorotimer" component={PomodoroTimer} />
+                <Route path="/timer" component={TimerApp} />
+
             </Router>
-        </div>
+        </div >
     )
 }
 

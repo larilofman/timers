@@ -48,12 +48,12 @@ class Timer extends React.Component {
     render() {
         document.title = "Timer"
         return (
-            <div>
+            <div className="timer">
                 <h1>Time: {toHHMMSS(this.state.time)}</h1>
-                <button onClick={this.startTimer} disabled={this.state.isRunning}>Start</button>
+                <button className="btn" onClick={this.startTimer} disabled={this.state.isRunning}>Start</button>
 
-                <button onClick={this.resumeTimer} disabled={this.state.time === 0 || this.state.isRunning}>Resume</button>
-                <button onClick={this.pauseTimer} disabled={!this.state.isRunning}>Pause</button>
+                <button className="btn" onClick={this.resumeTimer} disabled={this.state.time === 0 || this.state.isRunning}>Resume</button>
+                <button className="btn" onClick={this.pauseTimer} disabled={!this.state.isRunning}>Pause</button>
             </div>
         )
 
