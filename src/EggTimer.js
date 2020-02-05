@@ -69,6 +69,9 @@ class EggTimer extends React.Component {
     }
 
     render() {
+
+        const cssClassName = this.state.isRunning ? "eggtimer" : "alarmeggtimer"
+
         const timerRunningForm =
             <form name="runTimer" className="eggtimerform" onSubmit={this.cancelAlarm}>
                 <p>{this.props.text ? this.props.text + ":" : ""} {toHHMMSS(this.state.timeLeft, true)}</p>
@@ -82,7 +85,7 @@ class EggTimer extends React.Component {
             </form>
 
         return (
-            <div className="eggtimer">
+            <div className={cssClassName}>
                 {this.state.isRunning ? timerRunningForm : alarmForm}
             </div>
         )
