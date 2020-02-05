@@ -82,28 +82,44 @@ class PomodoroApp extends React.Component {
 
     render() {
         const setTimersForm = (
-            <form name="setTimers" onSubmit={this.handleSubmit}>
+            <form name="setTimers" className="setpomodoro" onSubmit={this.handleSubmit}>
+                <h2>Set pomodoro intervals</h2>
+                <div className="pomodorodialscontainer">
+                    <div className="pomodorodials">
+                        <p>Work: </p>
+                        <div className="pomodorodialslabels">
+                            <label htmlFor="workHours">Hours: </label>
+                            <label htmlFor="workMinutes">Minutes: </label>
+                            <label htmlFor="workSeconds">Seconds: </label>
+                        </div>
+                        <div className="pomodorodialsinputs">
+                            <input type="number" min="0" max="59" value={this.state.workMinutes} name="workMinutes" onChange={this.handleChange} />
+                            <input type="number" min="0" max="99" value={this.state.workHours} name="workHours" onChange={this.handleChange} />
+                            <input type="number" min="0" max="59" value={this.state.workSeconds} name="workSeconds" onChange={this.handleChange} />
+                        </div>
+                    </div>
 
-                <p>Work length: </p>
-                <label htmlFor="workHours">Hours: </label><input type="number" min="0" max="99" value={this.state.workHours} name="workHours" onChange={this.handleChange} />
-                <br />
-                <label htmlFor="workMinutes">Minutes: </label><input type="number" min="0" max="59" value={this.state.workMinutes} name="workMinutes" onChange={this.handleChange} />
-                <br />
-                <label htmlFor="workSeconds">Seconds: </label><input type="number" min="0" max="59" value={this.state.workSeconds} name="workSeconds" onChange={this.handleChange} />
-                <br />
+                    <div className="pomodorodials">
+                        <p>Break: </p>
+                        <div className="pomodorodialslabels">
+                            <label htmlFor="breakHours">Hours: </label>
+                            <label htmlFor="breakMinutes">Minutes: </label>
+                            <label htmlFor="breakSeconds">Seconds: </label>
+                        </div>
+                        <div className="pomodorodialsinputs">
+                            <input type="number" min="0" max="99" value={this.state.breakHours} name="breakHours" onChange={this.handleChange} />
+                            <input type="number" min="0" max="59" value={this.state.breakSeconds} name="breakSeconds" onChange={this.handleChange} />
+                            <input type="number" min="0" max="59" value={this.state.breakMinutes} name="breakMinutes" onChange={this.handleChange} />
+                        </div>
+                    </div>
+                </div>
 
-                <p>Break length: </p>
-                <label htmlFor="breakHours">Hours: </label><input type="number" min="0" max="99" value={this.state.breakHours} name="breakHours" onChange={this.handleChange} />
-                <br />
-                <label htmlFor="breakMinutes">Minutes: </label><input type="number" min="0" max="59" value={this.state.breakMinutes} name="breakMinutes" onChange={this.handleChange} />
-                <br />
-                <label htmlFor="breakSeconds">Seconds: </label><input type="number" min="0" max="59" value={this.state.breakSeconds} name="breakSeconds" onChange={this.handleChange} />
-                <br />
-                <button>Start</button>
+
+                <button className="btn">Start</button>
             </form>)
 
         return (
-            <div className="eggTimerApp">
+            <div className="eggtimerapp">
                 {!this.isActive() ? setTimersForm : this.getPomodoroTimer()}
             </div>
         )

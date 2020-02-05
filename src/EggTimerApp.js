@@ -50,7 +50,7 @@ class EggTimerApp extends React.Component {
     render() {
         const setTimerForm =
             <form name="setTimer" className="seteggtimer" onSubmit={this.handleSubmit}>
-                <h2>Add new egg timer: </h2>
+                <h2>Add new egg timer</h2>
                 <div className="eggtimerdigits">
                     <div>
                         <label htmlFor="hours">Hours: </label>
