@@ -1,5 +1,6 @@
 import React from "react"
 import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { HashRouter } from 'react-router-dom'
 import Timer from "./Timer"
 import EggTimerApp from "./EggTimerApp"
 import PomodoroApp from "./PomodoroApp"
@@ -13,22 +14,22 @@ function Header() {
                     <nav>
                         <ul>
                             <li>
-                                <Link className="navlink" to="/eggtimer">Egg</Link>
+                                <Link className="navlink" to="/timers/eggtimer">Egg</Link>
                             </li>
                             <li>
-                                <Link className="navlink" to="/pomodorotimer">Pomodoro</Link>
+                                <Link className="navlink" to="/timers/pomodorotimer">Pomodoro</Link>
                             </li>
                             <li>
-                                <Link className="navlink" to="/timer">Stopwatch</Link>
+                                <Link className="navlink" to="/timers/timer">Stopwatch</Link>
                             </li>
                         </ul>
                     </nav>
                 </div>
                 <Route exact path="/" component={HomePage} />
-                <Route path="/eggtimer" component={EggTimer} />
-                <Route path="/pomodorotimer" component={PomodoroTimer} />
-                <Route path="/timer" component={TimerApp} />
-
+                <Route exact path="/timers" component={HomePage} />
+                <Route exact path="/timers/eggtimer" component={EggTimer} />
+                <Route exact path="/timers/pomodorotimer" component={PomodoroTimer} />
+                <Route exact path="/timers/timer" component={TimerApp} />
             </Router>
         </div >
     )
