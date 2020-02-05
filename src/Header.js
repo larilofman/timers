@@ -1,6 +1,5 @@
 import React from "react"
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
-import { HashRouter } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link } from "react-router-dom"
 import Timer from "./Timer"
 import EggTimerApp from "./EggTimerApp"
 import PomodoroApp from "./PomodoroApp"

@@ -1,6 +1,6 @@
 {
-  "homepage": "http://larilofman.github.io/timers",
-  "name": "timer",
+  "homepage": "https://larilofman.github.io/timers",
+  "name": "timers",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
