@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "/timers/static/css/main.0c7b0a62.chunk.css",
+    "main.css": "/timers/static/css/main.fc347ba3.chunk.css",
     "main.js": "/timers/static/js/main.a0fbf976.chunk.js",
     "main.js.map": "/timers/static/js/main.a0fbf976.chunk.js.map",
     "runtime-main.js": "/timers/static/js/runtime-main.380a33bf.js",
@@ -8,9 +8,9 @@
     "static/js/2.7dad6fe3.chunk.js": "/timers/static/js/2.7dad6fe3.chunk.js",
     "static/js/2.7dad6fe3.chunk.js.map": "/timers/static/js/2.7dad6fe3.chunk.js.map",
     "index.html": "/timers/index.html",
-    "precache-manifest.7dd21eea0233b82c242a7545a1c69073.js": "/timers/precache-manifest.7dd21eea0233b82c242a7545a1c69073.js",
+    "precache-manifest.cbca088778c9c63571fadb27ed477754.js": "/timers/precache-manifest.cbca088778c9c63571fadb27ed477754.js",
     "service-worker.js": "/timers/service-worker.js",
-    "static/css/main.0c7b0a62.chunk.css.map": "/timers/static/css/main.0c7b0a62.chunk.css.map",
+    "static/css/main.fc347ba3.chunk.css.map": "/timers/static/css/main.fc347ba3.chunk.css.map",
     "static/js/2.7dad6fe3.chunk.js.LICENSE": "/timers/static/js/2.7dad6fe3.chunk.js.LICENSE",
     "static/media/UncleKornicob.mp3": "/timers/static/media/UncleKornicob.5a24f4cf.mp3",
     "static/media/cuckoo.mp3": "/timers/static/media/cuckoo.c3c16267.mp3",
@@ -19,7 +19,7 @@
   "entrypoints": [
     "static/js/runtime-main.380a33bf.js",
     "static/js/2.7dad6fe3.chunk.js",
-    "static/css/main.0c7b0a62.chunk.css",
+    "static/css/main.fc347ba3.chunk.css",
     "static/js/main.a0fbf976.chunk.js"
   ]
 }
