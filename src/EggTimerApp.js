@@ -49,19 +49,31 @@ class EggTimerApp extends React.Component {
 
     render() {
         const setTimerForm =
-            <form name="setTimer" onSubmit={this.handleSubmit}>
-                <p>Add new Timer: </p>
-                <label htmlFor="hours">Hours: </label><input type="number" min="0" max="99" value={this.state.hours} name="hours" onChange={this.handleChange} />
-                <br />
-                <label htmlFor="minutes">Minutes: </label><input type="number" min="0" max="59" value={this.state.minutes} name="minutes" onChange={this.handleChange} />
-                <br />
-                <label htmlFor="seconds">Seconds: </label><input type="number" min="0" max="59" value={this.state.seconds} name="seconds" onChange={this.handleChange} />
-                <br />
-                <label htmlFor="timerText">Text: </label><input type="text" maxLength="50" value={this.state.timerText} name="timerText" onChange={this.handleChange} />
-                <button>Start</button>
+            <form name="setTimer" className="seteggtimer" onSubmit={this.handleSubmit}>
+                <h2>Add new egg timer: </h2>
+                <div className="eggtimerdigits">
+                    <div>
+                        <label htmlFor="hours">Hours: </label>
+                        <input type="number" min="0" max="99" value={this.state.hours} name="hours" onChange={this.handleChange} />
+                    </div>
+                    <div>
+                        <label htmlFor="minutes">Minutes: </label>
+                        <input type="number" min="0" max="59" value={this.state.minutes} name="minutes" onChange={this.handleChange} />
+                    </div>
+                    <div>
+                        <label htmlFor="seconds">Seconds: </label>
+                        <input type="number" min="0" max="59" value={this.state.seconds} name="seconds" onChange={this.handleChange} />
+                    </div>
+
+                </div>
+                <div className="eggtimertext">
+                    <label htmlFor="timerText">Text: </label>
+                    <input type="text" maxLength="50" value={this.state.timerText} name="timerText" onChange={this.handleChange} />
+                </div>
+                <button className="btn">Start</button>
             </form>
         return (
-            <div className="eggTimerApp">
+            <div className="eggtimerapp">
                 {setTimerForm}
                 <ul>
                     {this.state.eggTimers.map((eggTimer) => <li key={eggTimer.id}>

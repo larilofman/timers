@@ -49,11 +49,15 @@ class Timer extends React.Component {
         document.title = "Timer"
         return (
             <div className="timer">
-                <h1>Time: {toHHMMSS(this.state.time)}</h1>
-                <button className="btn" onClick={this.startTimer} disabled={this.state.isRunning}>Start</button>
+                <h1>Stopwatch </h1>
+                <p>{toHHMMSS(this.state.time)}</p>
 
-                <button className="btn" onClick={this.resumeTimer} disabled={this.state.time === 0 || this.state.isRunning}>Resume</button>
-                <button className="btn" onClick={this.pauseTimer} disabled={!this.state.isRunning}>Pause</button>
+                <div className="timerbtns">
+                    <button className="btn" onClick={this.startTimer} disabled={this.state.isRunning}>Start</button>
+                    <button className="btn" onClick={this.resumeTimer} disabled={this.state.time === 0 || this.state.isRunning}>Resume</button>
+                    <button className="btn" onClick={this.pauseTimer} disabled={!this.state.isRunning}>Pause</button>
+                </div>
+
             </div>
         )
 
