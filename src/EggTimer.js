@@ -75,13 +75,17 @@ class EggTimer extends React.Component {
         const timerRunningForm =
             <form name="runTimer" className="eggtimerform" onSubmit={this.cancelAlarm}>
                 <p>{this.props.text ? this.props.text + ":" : ""} {toHHMMSS(this.state.timeLeft, true)}</p>
-                < button className="btn">Cancel</button>
+                <div className="btncontainer">
+                    <button className="btn">Cancel</button>
+                </div>
             </form>
 
         const alarmForm =
             <form name="alarm" className="eggtimerform" onSubmit={this.cancelAlarm}>
                 <p>Timer {this.props.text} ended after {toHHMMSS(this.state.totalTime, true)}.</p>
-                <button className="btn">Ok</button>
+                <div className="btncontainer">
+                    <button className="btn">Ok</button>
+                </div>
             </form>
 
         return (

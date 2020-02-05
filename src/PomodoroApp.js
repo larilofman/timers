@@ -8,11 +8,11 @@ class PomodoroApp extends React.Component {
         super()
         this.state = {
             workHours: 0,
-            workMinutes: 0,
-            workSeconds: 3,
+            workMinutes: 25,
+            workSeconds: 0,
             breakHours: 0,
-            breakMinutes: 0,
-            breakSeconds: 2,
+            breakMinutes: 5,
+            breakSeconds: 0,
             isWork: false,
             isBreak: false,
             timerKey: 0,

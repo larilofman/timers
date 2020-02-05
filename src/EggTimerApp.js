@@ -7,8 +7,8 @@ class EggTimerApp extends React.Component {
         document.title = "Egg Timers"
         this.state = {
             hours: 0,
-            minutes: 0,
-            seconds: 1,
+            minutes: 5,
+            seconds: 0,
             timerText: "",
             eggTimers: [],
             timerID: 1,
@@ -67,10 +67,13 @@ class EggTimerApp extends React.Component {
 
                 </div>
                 <div className="eggtimertext">
-                    <label htmlFor="timerText">Text: </label>
+                    <label htmlFor="timerText">Description: </label>
                     <input type="text" maxLength="50" value={this.state.timerText} name="timerText" onChange={this.handleChange} />
                 </div>
-                <button className="btn">Start</button>
+                <div className="btncontainer">
+                    <button className="btn">Start</button>
+                </div>
+
             </form>
         return (
             <div className="eggtimerapp">

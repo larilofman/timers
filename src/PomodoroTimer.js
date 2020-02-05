@@ -61,10 +61,10 @@ class PomodoroTimer extends React.Component {
             </form>
 
         return (
-            <div className="pomodorotimer">
+            <div className="pomodorotimer" data-bg-text={this.props.text}>
                 <h2>{this.props.text} round {this.props.roundNum}</h2>
                 {timerRunningForm}
-            </div>
+            </div >
         )
     }
 }
