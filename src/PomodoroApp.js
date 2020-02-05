@@ -15,7 +15,8 @@ class PomodoroApp extends React.Component {
             breakSeconds: 2,
             isWork: false,
             isBreak: false,
-            timerKey: 0
+            timerKey: 0,
+            roundNum: 1
         }
 
         this.workSound = new Audio(WorkSound)
@@ -40,13 +41,13 @@ class PomodoroApp extends React.Component {
         return this.state.isWork || this.state.isBreak
     }
 
-    handleChange = () => {
+    handleSwap = () => {
         this.state.isWork ? this.breakSound.play() : this.workSound.play()
-
+        // Increment roundNum when break ends
         this.setState(prevState => ({
+            roundNum: this.state.isWork ? prevState.roundNum : prevState.roundNum + 1,
             isWork: !prevState.isWork,
             isBreak: !prevState.isBreak,
-
         }))
     }
 
@@ -63,7 +64,8 @@ class PomodoroApp extends React.Component {
                     seconds={this.state.workSeconds}
                     text={"Work"}
                     key={0}
-                    onTimeout={this.handleChange}
+                    roundNum={this.state.roundNum}
+                    onTimeout={this.handleSwap}
                     onCancel={this.handleCancel}
                 />)
         } else {
@@ -74,7 +76,8 @@ class PomodoroApp extends React.Component {
                     seconds={this.state.breakSeconds}
                     text={"Break"}
                     key={1}
-                    onTimeout={this.handleChange}
+                    roundNum={this.state.roundNum}
+                    onTimeout={this.handleSwap}
                     onCancel={this.handleCancel}
                 />)
         }
@@ -93,8 +96,8 @@ class PomodoroApp extends React.Component {
                             <label htmlFor="workSeconds">Seconds: </label>
                         </div>
                         <div className="pomodorodialsinputs">
-                            <input type="number" min="0" max="59" value={this.state.workMinutes} name="workMinutes" onChange={this.handleChange} />
                             <input type="number" min="0" max="99" value={this.state.workHours} name="workHours" onChange={this.handleChange} />
+                            <input type="number" min="0" max="59" value={this.state.workMinutes} name="workMinutes" onChange={this.handleChange} />
                             <input type="number" min="0" max="59" value={this.state.workSeconds} name="workSeconds" onChange={this.handleChange} />
                         </div>
                     </div>
@@ -108,8 +111,8 @@ class PomodoroApp extends React.Component {
                         </div>
                         <div className="pomodorodialsinputs">
                             <input type="number" min="0" max="99" value={this.state.breakHours} name="breakHours" onChange={this.handleChange} />
-                            <input type="number" min="0" max="59" value={this.state.breakSeconds} name="breakSeconds" onChange={this.handleChange} />
                             <input type="number" min="0" max="59" value={this.state.breakMinutes} name="breakMinutes" onChange={this.handleChange} />
+                            <input type="number" min="0" max="59" value={this.state.breakSeconds} name="breakSeconds" onChange={this.handleChange} />
                         </div>
                     </div>
                 </div>

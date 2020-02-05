@@ -57,14 +57,12 @@ class PomodoroTimer extends React.Component {
         const timerRunningForm =
             <form name="runTimer" onSubmit={this.cancelAlarm}>
                 <p>{toHHMMSS(this.state.timeLeft, true)}</p>
-                <br />
-                <button onClick={this.props.onCancel}>Cancel</button>
+                <button className="btn" onClick={this.props.onCancel}>Cancel</button>
             </form>
 
         return (
-            <div className="eggTimer">
-                {this.props.text}
-                <br />
+            <div className="pomodorotimer">
+                <h2>{this.props.text} round {this.props.roundNum}</h2>
                 {timerRunningForm}
             </div>
         )
