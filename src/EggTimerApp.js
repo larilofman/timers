@@ -4,7 +4,6 @@ import EggTimer from "./EggTimer"
 class EggTimerApp extends React.Component {
     constructor() {
         super()
-        document.title = "Egg Timers"
         this.state = {
             hours: 0,
             minutes: 5,

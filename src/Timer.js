@@ -46,7 +46,6 @@ class Timer extends React.Component {
     }
 
     render() {
-        document.title = "Timer"
         return (
             <div className="timer">
                 <h1>Stopwatch </h1>
