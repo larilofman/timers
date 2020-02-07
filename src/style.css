@@ -248,12 +248,15 @@ padding: 0;
     grid-area: header;
     padding: 1rem 0 0 1rem;
     margin: 0;
+    text-align: center;
 }
 
 .pomodorodialscontainer {
     grid-area: dials;
     display: grid;
     grid-template-columns: 1fr 1fr;
+    margin-left: 10%;
+    padding-right: 10%;
 }
 
 .setpomodoro p {
@@ -270,8 +273,9 @@ padding: 0;
 .pomodorodials{
     padding: 1rem;
     display: grid;
-    grid-template-areas: 'para   para' 
+    grid-template-areas: 'para para' 
                          'label input';
+    grid-template-columns: minmax(150px, auto);
 }
 
 .pomodorodials div {
@@ -281,6 +285,9 @@ padding: 0;
 
 .pomodorodials p {
     grid-area: para;
+    text-align: center;
+    padding-right: 8vw;
+    font-size: 1.1rem;
 }
 
 .pomodorodialslabels{
@@ -291,6 +298,8 @@ padding: 0;
     grid-area: input;
     margin-right: 6rem;
 }
+
+
 
 .pomodorotimer {
     display: flex;
@@ -307,13 +316,11 @@ padding: 0;
 .pomodorotimer::after {
     color: rgb(209, 209, 209);
     content: attr(data-bg-text);
-    /* display: block; */
-    font-size: 18rem;
-    /* line-height: 1; */
+    font-size: 30vh;
+    line-height: 27vh;
     position: absolute;
-    left: 6rem;
-    bottom: -5rem;
-
+    left: 12%;
+    top: 0;
 }
 
 .pomodorotimer h2 {
@@ -338,56 +345,34 @@ padding: 0;
     font-size: 4rem;
 }
 
-.pomodorobgtext {
-    background-color: #aaa;
-    overflow: hidden;
-    padding: 20px 20px 100px 20px;
-    position: relative;
-    width: 400px;
-}
+
+
 
 /* Media queries */
 
-@media(max-width: 780px){
 
-        /* Navigation */
 
-    .navbar {
-        margin: auto;
-        width: 100%;
-        margin-bottom: 2rem;
+@media(max-width:1350px){
+    /* Pomodoro */
+
+    .setpomodoro {
+        width: 84.5vw;
     }
 
-    .navbar ul {
-        display: grid;
-        grid-gap: 20px;
-        padding: 0;
-        list-style: none;
-        grid-template-rows: repeat(3, 1fr);
-        grid-template-columns: none;
+    .pomodorodials{
+        grid-template-columns: minmax(150px, auto);
     }
 
-    /* Timer */
-
-    .timer{
-        grid-template-rows: 1fr 2fr 3fr;
-        width: 100%;
+    .pomodorotimer::after {
+        content: none;
     }
 
-    .timer h1 {
-        justify-self: center;
-    }
-
-    .timer .timerbtns{
-        width: 100%;
-    }
-
-    .timer .timerbtns button{
-    margin: 1rem auto;
-    display: block;
-    width: 75%;
-    }
 }
+
+
+
+
+
 @media(max-width: 1050px){
 
 
@@ -482,4 +467,115 @@ padding: 0;
         min-height: 4rem;
     }
 
+}
+
+
+
+
+
+
+
+
+@media(max-width: 780px){
+
+    /* Navigation */
+
+    .navbar {
+        margin: auto;
+        width: 100%;
+        margin-bottom: 2rem;
+    }
+
+    .navbar ul {
+        display: grid;
+        grid-gap: 20px;
+        padding: 0;
+        list-style: none;
+        grid-template-rows: repeat(3, 1fr);
+        grid-template-columns: none;
+    }
+
+    /* Timer */
+
+    .timer{
+        grid-template-rows: 1fr 2fr 3fr;
+        width: 100%;
+    }
+
+    .timer h1 {
+        justify-self: center;
+    }
+
+    .timer .timerbtns{
+        width: 100%;
+    }
+
+    .timer .timerbtns button{
+    margin: 1rem auto;
+    display: block;
+    width: 75%;
+    }
+
+    /* Pomodoro */
+
+    .setpomodoro {
+        grid-auto-rows: 1fr 3fr 1fr;
+        width: 100%;
+    }
+
+    .setpomodoro h2 {
+        padding: 1rem;
+    }
+    
+    .pomodorodialscontainer {
+        grid-template-rows: 1fr 1fr;
+        grid-template-columns: none;
+        margin-left: 0;
+        padding-right: 0;
+    }
+    
+    .setpomodoro p {
+        margin-bottom: 0;
+    }
+    
+    .setpomodoro .btn {
+        width: 80%;
+    }
+
+    .pomodorodials{
+        margin-top: -1rem;
+        grid-template-columns: auto;
+    }
+    
+    .pomodorodials p {
+        padding-right: 0;
+    }
+    
+    .pomodorodialslabels{
+        margin-left: 1rem;
+    }
+    
+    .pomodorodialsinputs{
+        grid-area: input;
+        margin-right: 0;
+        margin-left: 3rem;
+    }
+
+    .pomodorotimer {
+        width: 100%;
+    }
+
+    .pomodorotimer h2 {
+        text-align: center;
+        margin-left: 0;
+    }
+    .pomodorotimer form {
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .pomodorotimer form .btn{
+        width: 55vw;
+        height: 10vh;
+    }
 }

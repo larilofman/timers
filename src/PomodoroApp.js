@@ -122,7 +122,7 @@ class PomodoroApp extends React.Component {
             </form>)
 
         return (
-            <div className="eggtimerapp">
+            <div className="pomodoroapp">
                 {!this.isActive() ? setTimersForm : this.getPomodoroTimer()}
             </div>
         )
