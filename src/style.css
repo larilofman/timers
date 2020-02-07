@@ -478,6 +478,10 @@ padding: 0;
 
 @media(max-width: 780px){
 
+    .homeheader {
+        font-size: 5rem;
+    }
+
     /* Navigation */
 
     .navbar {
