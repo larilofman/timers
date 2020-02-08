@@ -27,7 +27,7 @@ class PomodoroApp extends React.Component {
     handleChange = (event) => {
         const { name, value } = event.target
         this.setState({ [name]: value })
-        setCookie(name, value);
+        setCookie(name, value, 90);
     }
 
     handleSubmit = (event) => {
