@@ -2,17 +2,18 @@ import React from "react"
 import PomodoroTimer from "./PomodoroTimer"
 import BreakSound from "./sounds/cuckoo.mp3"
 import WorkSound from "./sounds/slap.mp3"
+import { setCookie, getCookie } from "./Cookie"
 
 class PomodoroApp extends React.Component {
     constructor() {
         super()
         this.state = {
-            workHours: 0,
-            workMinutes: 25,
-            workSeconds: 0,
-            breakHours: 0,
-            breakMinutes: 5,
-            breakSeconds: 0,
+            workHours: getCookie("workHours", 0),
+            workMinutes: getCookie("workMinutes", 25),
+            workSeconds: getCookie("workSeconds", 0),
+            breakHours: getCookie("breakHours", 0),
+            breakMinutes: getCookie("breakMinutes", 5),
+            breakSeconds: getCookie("breakSeconds", 0),
             isWork: false,
             isBreak: false,
             timerKey: 0,
@@ -26,6 +27,7 @@ class PomodoroApp extends React.Component {
     handleChange = (event) => {
         const { name, value } = event.target
         this.setState({ [name]: value })
+        setCookie(name, value);
     }
 
     handleSubmit = (event) => {

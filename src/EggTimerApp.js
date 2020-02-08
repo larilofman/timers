@@ -1,13 +1,14 @@
 import React from "react"
 import EggTimer from "./EggTimer"
+import { setCookie, getCookie } from "./Cookie"
 
 class EggTimerApp extends React.Component {
     constructor() {
         super()
         this.state = {
-            hours: 0,
-            minutes: 5,
-            seconds: 0,
+            hours: getCookie("hours", 0),
+            minutes: getCookie("minutes", 5),
+            seconds: getCookie("seconds", 0),
             timerText: "",
             eggTimers: [],
             timerID: 1,
@@ -17,6 +18,7 @@ class EggTimerApp extends React.Component {
     handleChange = (event) => {
         const { name, value } = event.target
         this.setState({ [name]: value })
+        setCookie(name, value, 90)
     }
 
     handleSubmit = (event) => {
