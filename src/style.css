@@ -51,6 +51,14 @@ input {
     text-shadow: var(--shadow);
 }
 
+.volumetester {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    width: 128px;
+    height: 50px;
+}
+
 /* Navigation */
 
 .navbar {
@@ -375,6 +383,9 @@ padding: 0;
 
 @media(max-width: 1050px){
 
+    .volumetester {
+        display: none;
+    }
 
     /* EggTimer */
 

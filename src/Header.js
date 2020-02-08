@@ -5,6 +5,7 @@ import Timer from "./Timer"
 import EggTimerApp from "./EggTimerApp"
 import PomodoroApp from "./PomodoroApp"
 import Home from "./Home"
+import VolumeTester from "./VolumeTester"
 
 function Header() {
     return (
@@ -31,6 +32,7 @@ function Header() {
                 <Route exact path="/pomodorotimer" component={PomodoroTimer} />
                 <Route exact path="/timer" component={TimerApp} />
             </HashRouter>
+            <VolumeTester />
         </div >
     )
 }
